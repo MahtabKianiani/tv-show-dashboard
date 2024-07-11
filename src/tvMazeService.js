@@ -20,13 +20,6 @@ apiClient.interceptors.response.use(
 // Api request for all shows
 export const getShows = () => apiClient.get(`/shows`);
 
-// Api request to get all episodes
-export const getEpisodes = (id) => apiClient.get(`shows/${id}/episodes`);
-
-// Api request for particular show id
-export const getShow = (id) =>
-  apiClient.get(`/shows/${id}?embed[]=seasons&embed[]=cast&embed[]=crew`);
-
 // Api request to search shows
 export const getSearchShows = async (searchText) =>
   apiClient.get(`/search/shows?q=${searchText}`);
