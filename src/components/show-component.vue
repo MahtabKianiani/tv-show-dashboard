@@ -3,7 +3,7 @@
     <div class="feature-card">
       <router-link to="#">
         <div class="card" style="width: 18rem">
-          <img class="card-img-top" :src="movie.image" alt="Card image cap" />
+          <img class="card-img-top" :src=" movie.image " alt="Card image cap" />
           <div class="card-body">
             <p class="card-text ">{{ movie.name }} <span class="rating">{{ movie.rating }}</span><br><span>{{ movie.genre }}</span></p>
           </div>

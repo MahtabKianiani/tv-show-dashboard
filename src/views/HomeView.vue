@@ -2,12 +2,12 @@
   <div class="container">
     <div class="feature-card">
     </div>
-    <showComponent :movie="show"></showComponent>
+    <showComponent :movie="show" v-for="show in show" :key="show.id"></showComponent>
   </div>
 </template>
 
 <script>
-import { getSearchShows } from "@/tvMazeService";
+import { getShows } from "@/tvMazeService";
 import showComponent from "@/components/show-component";
 
 export default {
@@ -25,15 +25,21 @@ export default {
     };
   },
   methods: {
-    async searchShow() {
-      const x = await getSearchShows("sun");
+    async getAllShow() {
+      const x = await getShows();
       console.log(x);
-      return { name: x[1].show.name, image: x[1].show.image.original ,rating: x[1].show.rating.average, genre:x[1].show.genres};
+      return x.map(movie => {
+        return {
+          name: movie.name,
+          image: movie.image.medium,
+          rating: movie.rating.average
+        };
+      });
     },
   },
 
   async created() {
-    this.show = await this.searchShow();
+    this.show = await this.getAllShow();
   },
 };
 </script>
