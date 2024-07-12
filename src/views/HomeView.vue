@@ -1,45 +1,42 @@
 <template>
   <div class="container">
-    <div class="feature-card">
+    <div v-for="(genre, index) in uniqueGenres" :key="index">
+      <showListComponent :shows="shows" :genre="genre" />
     </div>
-    <showComponent :movie="show" v-for="show in show" :key="show.id"></showComponent>
   </div>
 </template>
 
 <script>
 import { getShows } from "@/tvMazeService";
-import showComponent from "@/components/show-component";
+import showListComponent from "@/components/show-list-component";
 
 export default {
   components: {
-    showComponent,
+    showListComponent,
   },
   data() {
     return {
-      show: {
-        name: String,
-        image: String,
-        rating: String
-        , genre: String
-      },
+      shows: [],
+      uniqueGenres: [],
     };
   },
   methods: {
     async getAllShow() {
       const x = await getShows();
-      console.log(x);
-      return x.map(movie => {
+      return x.map((movie) => {
         return {
           name: movie.name,
           image: movie.image.medium,
-          rating: movie.rating.average
+          rating: movie.rating.average,
+          genres: movie.genres,
         };
       });
     },
   },
 
   async created() {
-    this.show = await this.getAllShow();
+    this.shows = await this.getAllShow();
+    this.uniqueGenres = new Set(this.shows.map((show) => show.genres).flat());
   },
 };
 </script>

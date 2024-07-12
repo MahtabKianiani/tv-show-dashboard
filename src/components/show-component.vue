@@ -3,9 +3,12 @@
     <div class="feature-card">
       <router-link to="#">
         <div class="card" style="width: 18rem">
-          <img class="card-img-top" :src=" movie.image " alt="Card image cap" />
+          <img class="card-img-top" :src="movie.image" alt="movie.name" />
           <div class="card-body">
-            <p class="card-text ">{{ movie.name }} <span class="rating">{{ movie.rating }}</span><br><span>{{ movie.genre }}</span></p>
+            <p class="card-text">
+              {{ movie.name }} <span class="rating">{{ movie.rating }}</span
+              ><br /><span>{{ movie.genre }}</span>
+            </p>
           </div>
         </div>
       </router-link>
@@ -20,7 +23,8 @@ export default {
       type: {
         name: String,
         image: String,
-        rating: String, genre: String
+        rating: String,
+        genre: String,
       },
       required: true,
     },
@@ -28,12 +32,9 @@ export default {
 };
 </script>
 
-
-
-
 <style>
-.rating{
-  color:red;
+.rating {
+  color: red;
   float: right;
 }
 </style>
