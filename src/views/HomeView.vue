@@ -1,9 +1,19 @@
 <template>
-  <div class="container">
+  
+  <header>
+    <nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand">TVMAZE</a>
+  <form class="form-inline input-group mb-3">
+    <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</nav>
+</header>
+<body>
     <div v-for="(genre, index) in uniqueGenres" :key="index">
       <showListComponent :shows="shows" :genre="genre" />
     </div>
-  </div>
+ </body>
 </template>
 
 <script>
@@ -40,3 +50,16 @@ export default {
   },
 };
 </script>
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Fira Sans' , sans-serif;
+}
+.navbar-brand{
+  font-weight: bold;
+  padding-left: 15px;
+}
+
+</style>

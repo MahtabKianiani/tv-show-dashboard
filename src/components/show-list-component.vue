@@ -1,17 +1,18 @@
 <template>
-  <div class="container">
-    <div>
-      <h5>{{ genre }}</h5>
+  
+    <div class="main">
+        <div class="list-head">
+      <h3>{{ genre }}</h3>
+      <hr>
     </div>
     <div class="movie-list">
-      <div class="feature-card"></div>
       <showComponent
         :movie="show"
         v-for="show in filterSortShows(genre)"
         :key="show.id"
       ></showComponent>
     </div>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -42,9 +43,24 @@ export default {
 </script>
 <style>
 .movie-list {
-  display: grid;
-  grid-auto-flow: column; /* Ensures items are placed in columns */
-  grid-gap: 20px; /* Space between the items */
-  overflow-x: auto; /* Allows horizontal scrolling if needed */
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  align-items: start;
+}
+h3 {
+  padding-bottom: 15px;
+}
+h3:first-child {
+  padding-top: 15px;
+}
+.main{
+    padding-left: 40px;
+    
+}
+.list-head hr{
+  width: 20%;
+  margin: 0px 15px 0px 0px;
+  border: 1px solid black;
 }
 </style>
