@@ -1,10 +1,11 @@
 <template>
-  <header>
-    <navbarComponent />
-  </header>
   <body>
-    <div v-for="(genre, index) in uniqueGenres" :key="index">
-      <showListComponent :shows="shows" :genre="genre" />
+    <div class="container">
+      <navbarComponent />
+
+      <div v-for="(genre, index) in uniqueGenres" :key="index">
+        <showListComponent :shows="shows" :genre="genre" />
+      </div>
     </div>
   </body>
 </template>
@@ -32,9 +33,9 @@ export default {
         return {
           id: movie.id,
           name: movie.name,
-          image: movie.image.medium,
-          rating: movie.rating.average,
-          genres: movie.genres,
+          image: movie.image?.medium,
+          rating: movie.rating?.average,
+          genres: movie?.genres,
         };
       });
     },
@@ -48,9 +49,18 @@ export default {
 </script>
 <style>
 * {
+  font-family: Arial, sans-serif;
+  background-color: #2c3e50;
+  color: #ecf0f1;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: "Fira Sans", sans-serif !important;
+}
+
+.container {
+  max-width: 100%;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #34495e;
+  border-radius: 10px;
 }
 </style>

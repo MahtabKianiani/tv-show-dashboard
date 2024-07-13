@@ -5,8 +5,8 @@
     </div>
     <div class="movie-list">
       <showComponent
+        v-for="show in shows"
         :movie="show"
-        v-for="show in filterSortShows(genre)"
         :key="show.id"
       ></showComponent>
     </div>
@@ -24,17 +24,6 @@ export default {
     shows: {
       type: Array,
       required: true,
-    },
-    genre: {
-      type: String,
-      required: true,
-    },
-  },
-  methods: {
-    filterSortShows(genre) {
-      return this.shows
-        .filter((show) => show.genres.includes(genre))
-        .sort((first, second) => second.rating - first.rating);
     },
   },
 };
