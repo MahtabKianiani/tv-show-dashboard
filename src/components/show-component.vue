@@ -1,7 +1,9 @@
 <template>
   <div class="home">
     <div class="feature-card">
-      <router-link to="/">
+      <router-link
+        :to="{ name: 'details', params: { id: movie.id, movie: movie } }"
+      >
         <div class="card" style="width: 18rem">
           <img class="card-img-top" :src="movie.image" alt="movie.name" />
           <div class="card-body">
@@ -12,8 +14,7 @@
           </div>
         </div>
       </router-link>
-          <RouterView />
-
+      <RouterView />
     </div>
   </div>
 </template>
@@ -23,9 +24,10 @@ export default {
   props: {
     movie: {
       type: {
+        id: String,
         name: String,
         image: String,
-        rating: String,
+        rating: Number,
         genre: String,
       },
       required: true,
@@ -38,16 +40,14 @@ export default {
 .rating {
   color: #ff4545;
   float: right;
-  background-color: #FFE234
-;
+  background-color: #ffe234;
   border-radius: 50%;
   padding: 5px;
 }
-.feature-card{
+.feature-card {
   transition: transform 2s;
 }
-.feature-card :hover{
+.feature-card :hover {
   transform: scale(1.03);
 }
-
 </style>

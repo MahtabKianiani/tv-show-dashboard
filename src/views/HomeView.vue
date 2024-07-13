@@ -1,28 +1,23 @@
 <template>
-  
   <header>
-    <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand">TVMAZE</a>
-  <form class="form-inline input-group mb-3">
-    <input class="form-control mr-sm-3" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
-</nav>
-</header>
-<body>
+    <navbarComponent />
+  </header>
+  <body>
     <div v-for="(genre, index) in uniqueGenres" :key="index">
       <showListComponent :shows="shows" :genre="genre" />
     </div>
- </body>
+  </body>
 </template>
 
 <script>
 import { getShows } from "@/tvMazeService";
 import showListComponent from "@/components/show-list-component";
+import navbarComponent from "@/components/navbar-component";
 
 export default {
   components: {
     showListComponent,
+    navbarComponent,
   },
   data() {
     return {
@@ -35,6 +30,7 @@ export default {
       const x = await getShows();
       return x.map((movie) => {
         return {
+          id: movie.id,
           name: movie.name,
           image: movie.image.medium,
           rating: movie.rating.average,
@@ -51,15 +47,10 @@ export default {
 };
 </script>
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Fira Sans' , sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira Sans", sans-serif !important;
 }
-.navbar-brand{
-  font-weight: bold;
-  padding-left: 15px;
-}
-
 </style>

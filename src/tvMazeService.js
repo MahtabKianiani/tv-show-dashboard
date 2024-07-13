@@ -17,6 +17,11 @@ apiClient.interceptors.response.use(
     return Promise.reject(error);
   }
 );
+
+// By id
+export const getShow = (id) =>
+  apiClient.get(`/shows/${id}?embed[]=seasons&embed[]=cast&embed[]=crew`);
+
 // Api request for all shows
 export const getShows = () => apiClient.get(`/shows`);
 

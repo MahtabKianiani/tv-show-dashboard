@@ -3,7 +3,7 @@
     <div class="main">
         <div class="list-head">
       <h3>{{ genre }}</h3>
-      <hr>
+    
     </div>
     <div class="movie-list">
       <showComponent
@@ -55,12 +55,8 @@ h3:first-child {
   padding-top: 15px;
 }
 .main{
-    padding-left: 40px;
+margin-left: 30px;
     
 }
-.list-head hr{
-  width: 20%;
-  margin: 0px 15px 0px 0px;
-  border: 1px solid black;
-}
+
 </style>
