@@ -18,8 +18,7 @@ apiClient.interceptors.response.use(
   }
 );
 
-export const getShowById = (id) =>
-  apiClient.get(`/shows/${id}?embed[]=seasons&embed[]=cast&embed[]=crew`);
+export const getShowById = (id) => apiClient.get(`/shows/${id}?embed[]=cast`);
 
 export const getAllShows = () => apiClient.get(`/shows`);
 
