@@ -13,7 +13,7 @@
         />
 
         <button
-          class="btn btn-success my-2 my-sm-0"
+          class="btn btn-light my-2 my-sm-0"
           type="submit"
           @click="submitSearch($event)"
         >
@@ -35,13 +35,18 @@ export default {
 </script>
 <style>
 .navbar-contents {
-  padding: 0px 30px;
+  background-color: #222831 !important;
+  padding-left: 15px;
 }
 .navbar-brand {
+  background-color: #222831 !important;
   font-weight: bolder;
 }
 #search-bar {
   float: right;
-  right: 0;
+}
+.form-control{
+  border-radius: 0 !important;
+  background-color: #31363F !important;
 }
 </style>

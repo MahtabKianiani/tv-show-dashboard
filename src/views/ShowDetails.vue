@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="main">
     <div class="movie-header">
       <img :src="show.image" alt="show.name" class="movie-poster" />
       <div class="movie-info">
@@ -79,17 +79,17 @@ export default {
 <style>
 * {
   font-family: Arial, sans-serif;
-  background-color: #2c3e50;
+  background-color: #222831;
   color: #ecf0f1;
   margin: 0;
   padding: 0;
 }
 
-.container {
+.main {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  background-color: #34495e;
+  background-color: #31363f;
   border-radius: 10px;
 }
 
@@ -98,6 +98,7 @@ export default {
   flex-wrap: wrap; /* Allow wrapping for smaller screens */
   align-items: flex-start;
   border-radius: 10px;
+  background-color: #31363f;
 }
 
 .movie-poster,
@@ -110,6 +111,8 @@ export default {
 }
 
 .movie-info {
+    background-color: #31363f;
+
   flex-grow: 1;
 }
 
