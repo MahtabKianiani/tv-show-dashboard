@@ -1,9 +1,7 @@
 <template>
   <div class="home">
     <div class="feature-card">
-      <router-link
-        :to="{ name: 'details', params: { id: movie.id, movie: movie } }"
-      >
+      <router-link :to="{ name: 'details', params: { id: movie.id } }">
         <div class="card" style="width: 15rem">
           <img class="card-img-top poster" :src="photo" :alt="movie.name" />
           <div class="card-body">
@@ -41,7 +39,6 @@ export default {
       if (this.movie.image !== undefined) {
         return this.movie.image;
       } else {
-        console.log("Here");
         return "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
       }
     },
