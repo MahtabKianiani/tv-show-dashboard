@@ -4,7 +4,7 @@
       <a class="navbar-brand">TV Maze</a>
       <form class="d-flex align-items-center flex-nowrap" id="search-bar">
         <input
-          class="form-control mr-sm-3"
+          class="search-input form-control mr-sm-3"
           type="search"
           placeholder="Search"
           aria-label="Search"
@@ -13,7 +13,7 @@
         />
 
         <button
-          class="btn btn-success my-2 my-sm-0"
+          class="btn btn-light my-2 my-sm-0"
           type="submit"
           @click="submitSearch($event)"
         >
@@ -35,13 +35,24 @@ export default {
 </script>
 <style>
 .navbar-contents {
-  padding: 0px 30px;
+  background-color: #00000000 !important;
+  padding-left: 20px;
 }
 .navbar-brand {
+  background-color: #00000000 !important;
   font-weight: bolder;
+}
+.search-input {
+  color: white !important;
+}
+.search-input::placeholder {
+  color: grey !important;
 }
 #search-bar {
   float: right;
-  right: 0;
+}
+.form-control {
+  border-radius: 0 !important;
+  background-color: #00000000 !important;
 }
 </style>

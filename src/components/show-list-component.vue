@@ -1,15 +1,12 @@
 <template>
-  <div class="main">
-    <div class="list-head">
-      <h3>{{ genre }}</h3>
-    </div>
-    <div class="movie-list">
-      <showComponent
-        :movie="show"
-        v-for="show in filterSortShows(genre)"
-        :key="show.id"
-      ></showComponent>
-    </div>
+  <h3>{{ genre }}</h3>
+
+  <div class="movie-list">
+    <showComponent
+      :movie="show"
+      v-for="show in filterSortShows(genre)"
+      :key="show.id"
+    />
   </div>
 </template>
 
@@ -44,19 +41,18 @@ export default {
   display: flex;
   gap: 20px;
   overflow-x: auto;
+  padding-left: 20px;
+  padding-right: 20px;
   align-items: start;
+  background-color: #222831 !important;
 }
 h3 {
-  padding-bottom: 15px;
+  background-color: #222831;
+  padding-bottom: 16px;
+  padding-left: 20px;
+  font-weight: bolder;
 }
 h3:first-child {
-  padding-top: 15px;
-}
-.main {
-  max-width: 100%;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #34495e;
-  border-radius: 10px;
+  padding-top: 16px;
 }
 </style>

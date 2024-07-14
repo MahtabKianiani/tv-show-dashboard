@@ -1,9 +1,10 @@
 <template>
+  <header>
+    <navbarComponent />
+  </header>
   <body>
-    <div class="container">
-      <navbarComponent />
-
-      <div v-for="(genre, index) in uniqueGenres" :key="index">
+    <div class="hala">
+      <div v-for="(genre, index) in uniqueGenres" :key="index" class="list">
         <showListComponent :shows="shows" :genre="genre" />
       </div>
     </div>
@@ -11,7 +12,7 @@
 </template>
 
 <script>
-import { getShows } from "@/tvMazeService";
+import { getAllShows } from "@/tvMazeService";
 import showListComponent from "@/components/show-list-component";
 import navbarComponent from "@/components/navbar-component";
 
@@ -28,8 +29,8 @@ export default {
   },
   methods: {
     async getAllShow() {
-      const x = await getShows();
-      return x.map((movie) => {
+      const shows = await getAllShows();
+      return shows.map((movie) => {
         return {
           id: movie.id,
           name: movie.name,
@@ -48,19 +49,13 @@ export default {
 };
 </script>
 <style>
-* {
-  font-family: Arial, sans-serif;
-  background-color: #2c3e50;
-  color: #ecf0f1;
-  margin: 0;
-  padding: 0;
+body {
+  background-color: #222831 !important;
 }
-
-.container {
-  max-width: 100%;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #34495e;
-  border-radius: 10px;
+.hala {
+  background-color: #222831 !important;
+}
+.list {
+  background-color: #222831 !important;
 }
 </style>

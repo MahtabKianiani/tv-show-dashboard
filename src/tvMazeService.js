@@ -18,13 +18,10 @@ apiClient.interceptors.response.use(
   }
 );
 
-// By id
-export const getShow = (id) =>
+export const getShowById = (id) =>
   apiClient.get(`/shows/${id}?embed[]=seasons&embed[]=cast&embed[]=crew`);
 
-// Api request for all shows
-export const getShows = () => apiClient.get(`/shows`);
+export const getAllShows = () => apiClient.get(`/shows`);
 
-// Api request to search shows
 export const getSearchShows = async (searchText) =>
   apiClient.get(`/search/shows?q=${searchText}`);
