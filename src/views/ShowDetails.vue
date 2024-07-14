@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="movie-header">
-      <img :src="show.image" alt="show.name" class="movie-poster" />
+      <img :src="photo" :alt="show.name" class="movie-poster" />
       <div class="movie-info">
         <h1 class="movie-title">{{ show.name }}</h1>
         <div class="movie-rating"><b>Rate: </b> {{ show.rating }}</div>
@@ -51,7 +51,7 @@ export default {
     };
   },
   methods: {
-    async getShowById(id) {
+    async getShow(id) {
       const show = await getShowById(id);
       return {
         name: show.name,
@@ -69,9 +69,18 @@ export default {
       };
     },
   },
+  computed: {
+    photo() {
+      if (this.show.image !== undefined) {
+        return this.show.image;
+      } else {
+        return "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
+      }
+    },
+  },
 
-  async created() {
-    this.show = await this.getShowById(this.$route.params.id);
+  async mounted() {
+    this.show = await this.getShow(this.$route.params.id);
   },
 };
 </script>
@@ -94,7 +103,7 @@ export default {
 
 .movie-header {
   display: flex;
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 
   border-radius: 10px;
   background-color: #222831;

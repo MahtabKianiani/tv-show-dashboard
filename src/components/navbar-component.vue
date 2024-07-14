@@ -26,8 +26,7 @@
 <script>
 export default {
   methods: {
-    submitSearch(e) {
-      console.log(e);
+    submitSearch() {
       this.$router.push("/search/" + this.searchQuery);
     },
   },
