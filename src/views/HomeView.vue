@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { getShows } from "@/tvMazeService";
+import { getAllShows } from "@/tvMazeService";
 import showListComponent from "@/components/show-list-component";
 import navbarComponent from "@/components/navbar-component";
 
@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     async getAllShow() {
-      const shows = await getShows();
+      const shows = await getAllShows();
       return shows.map((movie) => {
         return {
           id: movie.id,

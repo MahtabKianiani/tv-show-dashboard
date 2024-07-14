@@ -5,11 +5,11 @@
         :to="{ name: 'details', params: { id: movie.id, movie: movie } }"
       >
         <div class="card" style="width: 15rem">
-          <img class="card-img-top" :src="movie.image" :alt="movie.name" />
+          <img class="card-img-top poster" :src="photo" :alt="movie.name" />
           <div class="card-body">
             <p class="card-text">
               {{ movie.name }}
-              <span class="rating">{{
+              <span class="rating" v-if="movie.rating !== null">{{
                 parseFloat(movie.rating).toFixed(1)
               }}</span
               ><br />
@@ -36,6 +36,16 @@ export default {
       required: true,
     },
   },
+  computed: {
+    photo() {
+      if (this.movie.image !== undefined) {
+        return this.movie.image;
+      } else {
+        console.log("Here");
+        return "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg";
+      }
+    },
+  },
 };
 </script>
 
@@ -46,6 +56,12 @@ export default {
   background-color: #222831;
   border-radius: 50%;
   padding: 7px;
+}
+
+.poster {
+  width: 150px;
+  height: 350px;
+  object-fit: cover;
 }
 
 .card-body,

@@ -4,14 +4,14 @@
       <img :src="show.image" alt="show.name" class="movie-poster" />
       <div class="movie-info">
         <h1 class="movie-title">{{ show.name }}</h1>
-        <div class="movie-rating">Rate: {{ show.rating }}</div>
+        <div class="movie-rating"><b>Rate: </b> {{ show.rating }}</div>
         <div class="movie-genres">
-          Genres:
+          <b>Genres: </b>
           <span v-for="genre in show.genres" :key="genre"
             >{{ genre }} &nbsp;</span
           >
         </div>
-        <div class="movie-language">Language: {{ show.language }}</div>
+        <div class="movie-language"><b>Language: </b> {{ show.language }}</div>
       </div>
     </div>
     <div class="movie-summary">
@@ -30,7 +30,7 @@
 </template>
 
 <script>
-import { getShow } from "@/tvMazeService";
+import { getShowById } from "@/tvMazeService";
 import castComponent from "@/components/cast-component";
 
 export default {
@@ -52,7 +52,7 @@ export default {
   },
   methods: {
     async getShowById(id) {
-      const show = await getShow(id);
+      const show = await getShowById(id);
       return {
         name: show.name,
         image: show.image?.original,
@@ -94,23 +94,24 @@ export default {
 
 .movie-header {
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping for smaller screens */
-  align-items: flex-start;
+    flex-wrap: wrap;
+
   border-radius: 10px;
-  background-color: #31363f;
+  background-color: #222831;
 }
 
 .movie-poster {
+  flex-grow: 2;
   width: 150px;
   height: auto;
   border-radius: 10px;
   margin-right: 20px;
-  margin-bottom: 20px; /* Add margin for spacing on small screens */
+  margin-bottom: 0; /* Add margin for spacing on small screens */
 }
 
 .movie-info {
-  background-color: #31363f;
-
+  border-radius: 10px;
+  padding: 16px;
   flex-grow: 1;
 }
 
@@ -128,7 +129,9 @@ export default {
 
 .movie-summary,
 .movie-cast {
-  margin-top: 20px;
+  padding: 16px;
+  margin-top: 16px;
+  border-radius: 8px;
 }
 
 .movie-summary h2,
@@ -139,19 +142,21 @@ export default {
 }
 
 .movie-summary p {
-  font-size: 1.2em;
+  font-size: 1em;
   line-height: 1.6;
 }
 
 .movie-cast ul {
   display: flex;
   flex-direction: row;
+  gap: 16px;
   flex-wrap: wrap;
   list-style-type: none;
-  padding: 0;
 }
 
 .movie-cast li {
+  padding: 0 !important;
+  margin: 0 !important;
   font-size: 1.2em;
   text-align: center;
 }
@@ -183,6 +188,8 @@ export default {
   }
 
   .movie-info {
+    flex-grow: 1;
+    display: inline;
     width: 100%; /* Make the info full width on small screens */
     text-align: center;
   }

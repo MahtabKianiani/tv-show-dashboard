@@ -4,7 +4,7 @@
       <a class="navbar-brand">TV Maze</a>
       <form class="d-flex align-items-center flex-nowrap" id="search-bar">
         <input
-          class="form-control mr-sm-3"
+          class="search-input form-control mr-sm-3"
           type="search"
           placeholder="Search"
           aria-label="Search"
@@ -41,6 +41,12 @@ export default {
 .navbar-brand {
   background-color: #00000000 !important;
   font-weight: bolder;
+}
+.search-input {
+  color: white !important;
+}
+.search-input::placeholder {
+  color: grey !important;
 }
 #search-bar {
   float: right;

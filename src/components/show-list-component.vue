@@ -6,7 +6,7 @@
       :movie="show"
       v-for="show in filterSortShows(genre)"
       :key="show.id"
-    ></showComponent>
+    />
   </div>
 </template>
 

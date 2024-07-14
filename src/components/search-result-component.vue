@@ -1,15 +1,9 @@
 <template>
-  <div class="main">
-    <div class="list-head">
-      <h3>{{ genre }}</h3>
-    </div>
-    <div class="movie-list">
-      <showComponent
-        v-for="show in shows"
-        :movie="show"
-        :key="show.id"
-      ></showComponent>
-    </div>
+  <div class="list-head">
+    <h3>Results for: {{ searchResult }}</h3>
+  </div>
+  <div class="search-movie-list">
+    <showComponent v-for="show in shows" :movie="show" :key="show.id" />
   </div>
 </template>
 
@@ -25,27 +19,21 @@ export default {
       type: Array,
       required: true,
     },
+    searchResult: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>
 <style>
-.movie-list {
+.search-movie-list {
   display: flex;
   gap: 20px;
   overflow-x: auto;
+  padding-left: 20px;
+  padding-right: 20px;
   align-items: start;
-}
-h3 {
-  padding-bottom: 15px;
-}
-h3:first-child {
-  padding-top: 15px;
-}
-.main {
-  max-width: 100%;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #34495e;
-  border-radius: 10px;
+  background-color: #222831 !important;
 }
 </style>

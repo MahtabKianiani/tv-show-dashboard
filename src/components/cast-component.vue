@@ -22,6 +22,8 @@ export default {
 
 <style>
 .movie-cast {
+  padding: 0;
+  margin: 0;
   margin-top: 20px;
 }
 .cast-image {
@@ -29,8 +31,6 @@ export default {
   height: 200px;
   object-fit: cover;
   border-radius: 10px;
-  margin-right: 20px;
-  margin-bottom: 20px; /* Add margin for spacing on small screens */
 }
 .cast-name {
   text-align: center;
