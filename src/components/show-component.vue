@@ -5,7 +5,7 @@
         :to="{ name: 'details', params: { id: movie.id, movie: movie } }"
       >
         <div class="card" style="width: 15rem">
-          <img class="card-img-top" :src="movie.image" alt="movie.name" />
+          <img class="card-img-top" :src="movie.image" :alt="movie.name" />
           <div class="card-body">
             <p class="card-text">
               {{ movie.name }}

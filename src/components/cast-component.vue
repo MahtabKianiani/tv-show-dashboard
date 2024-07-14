@@ -2,7 +2,7 @@
   <div class="movie-cast">
     <img :src="cast.image" :alt="cast.name" class="cast-image" />
     <br />
-    <span class="member-name">{{ cast.name }}</span>
+    <span class="cast-name">{{ cast.name }}</span>
   </div>
 </template>
 
@@ -32,7 +32,7 @@ export default {
   margin-right: 20px;
   margin-bottom: 20px; /* Add margin for spacing on small screens */
 }
-.member-name {
+.cast-name {
   text-align: center;
   width: 80%;
   display: inline-block;
