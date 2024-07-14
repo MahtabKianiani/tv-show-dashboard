@@ -22,12 +22,7 @@
       <h2>Cast</h2>
       <ul>
         <li v-for="member in show.cast" :key="member.name">
-          <img
-            :src="member.image"
-            :alt="member.name"
-            class="cast-image"
-          /><br />
-          <span class="member-name">{{ member.name }}</span>
+          <castComponent :cast="member" />
         </li>
       </ul>
     </div>
@@ -36,8 +31,12 @@
 
 <script>
 import { getShow } from "@/tvMazeService";
+import castComponent from "@/components/cast-component";
 
 export default {
+  components: {
+    castComponent,
+  },
   data() {
     return {
       show: {
@@ -101,8 +100,7 @@ export default {
   background-color: #31363f;
 }
 
-.movie-poster,
-.cast-image {
+.movie-poster {
   width: 150px;
   height: auto;
   border-radius: 10px;
@@ -111,7 +109,7 @@ export default {
 }
 
 .movie-info {
-    background-color: #31363f;
+  background-color: #31363f;
 
   flex-grow: 1;
 }
@@ -155,10 +153,6 @@ export default {
 
 .movie-cast li {
   font-size: 1.2em;
-  margin: 5px 0;
-  text-align: center;
-}
-.member-name {
   text-align: center;
 }
 
@@ -186,9 +180,6 @@ export default {
   .movie-poster {
     width: 100%; /* Make the poster full width on small screens */
     margin-right: 0;
-  }
-  .cast-image {
-    width: 50%;
   }
 
   .movie-info {

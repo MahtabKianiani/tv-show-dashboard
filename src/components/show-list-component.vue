@@ -48,11 +48,11 @@ export default {
 }
 h3 {
   background-color: #222831;
-  padding-bottom: 15px;
-  padding-left: 15px;
+  padding-bottom: 16px;
+  padding-left: 20px;
   font-weight: bolder;
 }
 h3:first-child {
-  padding-top: 15px;
+  padding-top: 16px;
 }
 </style>

@@ -35,18 +35,18 @@ export default {
 </script>
 <style>
 .navbar-contents {
-  background-color: #222831 !important;
-  padding-left: 15px;
+  background-color: #00000000 !important;
+  padding-left: 20px;
 }
 .navbar-brand {
-  background-color: #222831 !important;
+  background-color: #00000000 !important;
   font-weight: bolder;
 }
 #search-bar {
   float: right;
 }
-.form-control{
+.form-control {
   border-radius: 0 !important;
-  background-color: #31363F !important;
+  background-color: #00000000 !important;
 }
 </style>

@@ -1,0 +1,40 @@
+<template>
+  <div class="movie-cast">
+    <img :src="cast.image" :alt="cast.name" class="cast-image" />
+    <br />
+    <span class="member-name">{{ cast.name }}</span>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    cast: {
+      type: {
+        name: String,
+        image: String,
+      },
+      required: true,
+    },
+  },
+};
+</script>
+
+<style>
+.movie-cast {
+  margin-top: 20px;
+}
+.cast-image {
+  width: 150px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 20px;
+  margin-bottom: 20px; /* Add margin for spacing on small screens */
+}
+.member-name {
+  text-align: center;
+  width: 80%;
+  display: inline-block;
+}
+</style>
