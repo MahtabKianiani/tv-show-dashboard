@@ -156,16 +156,20 @@ export default {
 }
 
 .movie-cast ul {
-  display: flex;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0;
+  /* display: flex;
   flex-direction: row;
   gap: 16px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
   list-style-type: none;
 }
 
 .movie-cast li {
-  padding: 0 !important;
-  margin: 0 !important;
+  
   font-size: 1.2em;
   text-align: center;
 }
